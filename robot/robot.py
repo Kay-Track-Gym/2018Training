@@ -1,11 +1,31 @@
+'''
+    This is a demo program showing how to use Mecanum control with the
+    RobotDrive class.
+'''
+
+#add 'team3200' module to the search path
 import team3200
 import wpilib
+
+import commandbased
+
+import team3200.subsystems.driveTrain
+
 #code to help run the robot
 
 #import sys       
 def exit(retval):
     pass
 #    sys.exit(retval)
+
+class MyRobot(commandbased.CommandBasedRobot):
+    
+    def robotInit(self):
+        team3200.getRobot = lambda x=0:self
+        self.dtSub = team3200.subsystems.driveTrain.DriveTrainSub()
+        self.driveController = wpilib.XboxController(0)
+
+
 
 if __name__ == '__main__':
     try:
@@ -30,4 +50,4 @@ if __name__ == '__main__':
     except Exception as err:
             print("Failed to patch runtime. Error", err)
     
-    wpilib.run(team3200.robot.MyRobot,physics_enabled=True)
+    wpilib.run(MyRobot,physics_enabled=True)
