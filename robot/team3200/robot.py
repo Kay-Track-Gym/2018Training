@@ -13,7 +13,8 @@ import wpilib
 
 import commandbased
 
-import subsystems.driveTrain
+import team3200.subsystems.driveTrain
+
 
 #main robot
 
@@ -21,7 +22,7 @@ class MyRobot(commandbased.CommandBasedRobot):
     
     def robotInit(self):
         team3200.getRobot = lambda x=0:self
-        self.dtSub = subsystems.driveTrain.DriveTrainSub()
+        self.dtSub = team3200.subsystems.driveTrain.DriveTrainSub()
         self.driveController = wpilib.XboxController(0)
 
 #    def teleopInit(self):

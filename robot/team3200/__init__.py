@@ -1,3 +1,3 @@
-from robotMap import RobotMap
-
-robotMap = RobotMap()
+from . import *
+from . import robot
+from . import robotMap
